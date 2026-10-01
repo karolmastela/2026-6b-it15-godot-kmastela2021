@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://ce5ftcdg183bc"]
 
+[ext_resource type="PackedScene" uid="uid://yx6tis0jjddx" path="res://node_2d.tscn" id="1_ig7tw"]
+
 [node name="Main" type="Control" unique_id=624025274]
 layout_mode = 3
 anchors_preset = 0
@@ -21,3 +23,6 @@ offset_right = 174.0
 offset_bottom = 115.0
 text = "Klick mich!
 "
+
+[node name="Node2D" parent="." unique_id=1825757779 instance=ExtResource("1_ig7tw")]
+position = Vector2(194, 187)
