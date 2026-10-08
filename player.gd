@@ -22,3 +22,8 @@ func _process(delta: float) -> void:
 		direction = direction.normalized()
 
 	position += direction * speed * delta
+	
+signal health_depleted(final_score: int)
+
+func take_damage() -> void: 
+	health_depleted.emit(100)
