@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://player_3d.gd" id="1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1"]
+radius = 0.5
+
+[sub_resource type="StandardMaterial3D" id="Mat_body"]
+albedo_color = Color(0.27, 0.55, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1"]
+material = SubResource("Mat_body")
+radius = 0.5
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Mat_nose"]
+albedo_color = Color(1, 0.85, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nose"]
+material = SubResource("Mat_nose")
+size = Vector3(0.2, 0.2, 0.4)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Body" type="MeshInstance3D" parent="Pivot"]
+mesh = SubResource("SphereMesh_1")
+
+[node name="Nose" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6)
+mesh = SubResource("BoxMesh_nose")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_1")
